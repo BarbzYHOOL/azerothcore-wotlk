@@ -9,7 +9,7 @@
 # WITHOUT ANY WARRANTY, to the extent permitted by law; without even the
 # implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 
-if(CMAKE_SYSTEM_NAME MATCHES "Linux" AND SERVERS AND NOT NOJEM)
+if(CMAKE_SYSTEM_NAME MATCHES "Linux" AND (AUTHSERVER OR WORLDSERVER) AND NOT NOJEM)
   # We need to generate the jemalloc_def.h header based on platform-specific settings
   CHECK_SYMBOL_EXISTS(MADV_FREE "sys/mman.h" HAVE_MADV_FREE)
 
@@ -69,7 +69,7 @@ if(CMAKE_SYSTEM_NAME MATCHES "Linux" AND SERVERS AND NOT NOJEM)
     ${CMAKE_CURRENT_SOURCE_DIR}/src/witness.c
   )
 
-  add_library(jemalloc STATIC 
+  add_library(jemalloc STATIC
     ${jemalloc_STAT_SRC})
 
   target_include_directories(jemalloc

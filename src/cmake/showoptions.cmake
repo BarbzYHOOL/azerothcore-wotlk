@@ -20,10 +20,16 @@ message("")
 
 # Show infomation about the options selected during configuration
 
-if( SERVERS )
-  message("* Build world/auth                : Yes (default)")
+if( AUTHSERVER )
+  message("* Build authserver                : Yes (default)")
 else()
-  message("* Build world/authserver          : No")
+  message("* Build authserver                : No")
+endif()
+
+if( WORLDSERVER )
+  message("* Build worldserver                : Yes (default)")
+else()
+  message("* Build worldserver                : No")
 endif()
 
 if( SCRIPTS )

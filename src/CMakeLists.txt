@@ -1,4 +1,4 @@
-# Copyright (C) 
+# Copyright (C)
 #
 # This file is free software; as a special exception the author gives
 # unlimited permission to copy and/or distribute it, with or without
@@ -20,4 +20,17 @@ add_subdirectory(genrev)
 
 if( SERVERS )
   add_subdirectory(server)
+else()
+
+    ## ADD THE AUTHSERVER DIR WHEN NOT DISABLED
+    if( AUTHSERVER )
+      add_subdirectory(server/authserver)
+    endif()
+
+    if( WORLDSERVER )
+      add_subdirectory(server/worldserver)
+      add_subdirectory(server/scripts)
+      add_subdirectory(server/game)
+    endif()
+
 endif()

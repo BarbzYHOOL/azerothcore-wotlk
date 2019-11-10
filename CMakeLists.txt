@@ -52,6 +52,16 @@ if(EXISTS "${CMAKE_SOURCE_DIR}/conf/config.cmake")
   include(conf/config.cmake)
 endif()
 
+# SHORTHAND
+if( SERVERS )
+  set(AUTHSERVER 1)
+  set(WORLDSERVER 1)
+elseif( NO_SERVERS )
+  set(AUTHSERVER 0)
+  set(WORLDSERVER 0)
+endif()
+
+
 #
 # Loading dyn modules
 #
@@ -120,7 +130,7 @@ include(src/cmake/showoptions.cmake)
 
 add_subdirectory(deps)
 
-if( SERVERS OR TOOLS)
+if( AUTHSERVER OR WORLDSERVER OR TOOLS)
   add_subdirectory(src/common)
 endif()
 
