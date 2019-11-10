@@ -27,9 +27,9 @@ else()
 endif()
 
 if( WORLDSERVER )
-  message("* Build worldserver                : Yes (default)")
+  message("* Build worldserver               : Yes (default)")
 else()
-  message("* Build worldserver                : No")
+  message("* Build worldserver               : No")
 endif()
 
 if( SCRIPTS )
